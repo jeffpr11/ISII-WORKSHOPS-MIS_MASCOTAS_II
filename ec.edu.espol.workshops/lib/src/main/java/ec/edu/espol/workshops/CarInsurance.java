@@ -2,7 +2,7 @@ package ec.edu.espol.workshops;
 import java.util.Scanner;
 
 public class CarInsurance {
-	Scanner scanner = new Scanner(System.in);
+	private Scanner scanner;
 	
     private String marital_status;
     private String sex;
@@ -10,8 +10,18 @@ public class CarInsurance {
     private String permission;
     private int base_price = 500;
     
-    public void ProgramConsole() {
-        System.out.println("Enter customer data.");
+    public CarInsurance() {
+    	this.marital_status = "";
+    	this.sex = "";
+    	this.age= 0;
+    	this.permission= "no";
+    	this.marital_status = "not married";
+    }
+    
+    public void programConsole() {
+        this.scanner = new Scanner(System.in, "UTF-8");
+    	
+    	System.out.println("Enter customer data.");
         System.out.print("Enter the customer's age:");
         while(scanner.hasNextLine()){
         	this.age = Integer.parseInt(scanner.nextLine());
@@ -38,7 +48,7 @@ public class CarInsurance {
 		if (this.age >= 80) {
 			System.out.println("We do not sell a car insurance to a person over 80 years old.");
 	    } else {
-	    	if(this.sex.equals("M") && this.marital_status.equals("not married") && this.age < 25)
+	    	if(this.sex.equals("M") && this.marital_status.equals("not married") && (this.age < 25))
 	    		this.base_price = this.base_price + 1500;
 	    	else if (this.sex.equals("F") || this.marital_status.equals("married"))
 	    		this.base_price = this.base_price - 200;
