@@ -8,7 +8,7 @@ import java.util.Scanner;
  * CarInsurance Class for program execution.
  */
 public class CarInsurance {
-  Scanner scanner = new Scanner(System.in);
+  private Scanner scanner;
 
   private String maritalStatus;
   private String sex;
@@ -16,11 +16,21 @@ public class CarInsurance {
   private String permission;
   private int basePrice = 500;
 
+  public CarInsurance() {
+    this.marital_status = "";
+    this.sex = "";
+    this.age= 0;
+    this.permission= "no";
+    this.marital_status = "not married";
+  }
+
   /**
    * programConsole method.
    * It allows inputs where customer set his data to calculate the value.
    */
   public void programConsole() {
+    this.scanner = new Scanner(System.in, "UTF-8");
+
     out.println("Enter customer data.");
     out.print("Enter the customer's age:");
     while (scanner.hasNextLine()) {
@@ -53,7 +63,7 @@ public class CarInsurance {
     if (this.age >= 80) {
       out.println("We do not sell a car insurance to a person over 80 years old.");
     } else {
-      if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && this.age < 25) {
+      if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
         this.basePrice = this.basePrice + 1500;
       } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
         this.basePrice = this.basePrice - 200;
