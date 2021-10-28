@@ -8,22 +8,45 @@ import java.util.Scanner;
  * CarInsurance Class for program execution.
  */
 public class CarInsurance {
-  private Scanner scanner;
+	public static void main(String[] args) {
+		new ProgramConsole();
+	}
+}
 
+class ProgramConsole {
+  private Scanner scanner;
+  PrintStream out = System.out;
+  
   private String marital_status;
   private String sex;
   private int age;
   private String permission;
   private int basePrice = 500;
 
-  public CarInsurance() {
-    this.marital_status = "";
-    this.sex = "";
-    this.age= 0;
-    this.permission= "no";
-    this.marital_status = "not married";
+  public ProgramConsole() {
+//	  Case 1
+//	  this.sex = "M";
+//	  this.age= 20;
+//	  this.permission= "yes";
+//	  this.marital_status = "married";
+//	  Case 2
+//	  this.sex = "F";
+//	  this.age= 20;
+//	  this.permission= "yes";
+//	  this.marital_status = "not married";
+//	  Case 3
+//	  this.sex = "M";
+//	  this.age= 16;
+//	  this.permission= "no";
+//	  this.marital_status = "not married";
+//	  this.programConsole();
+//	  Case 4
+//	  this.sex = "M";
+//	  this.age= 50;
+//	  this.permission= "yes";
+//	  this.marital_status = "married";
   }
-
+  
   /**
    * programConsole method.
    * It allows inputs where customer set his data to calculate the value.
@@ -31,23 +54,23 @@ public class CarInsurance {
   public void programConsole() {
     this.scanner = new Scanner(System.in, "UTF-8");
 
-    out.println("Enter customer data.");
+    /*out.println("Enter customer data.");
     out.print("Enter the customer's age:");
     while (scanner.hasNextLine()) {
-      this.age = Integer.parseInt(scanner.nextLine());
+      this.age = 50;//Integer.parseInt(scanner.nextLine());
     }
     out.print("Enter the sex of the customer (M/F):");
     while (scanner.hasNextLine()) {
-      this.sex = scanner.nextLine();
+      this.sex = "M";//scanner.nextLine();
     }
     out.print("Enter the marital status of the customer (married/not married):");
     while (scanner.hasNextLine()) {
-      this.marital_status = scanner.nextLine();
+      this.marital_status = "married"; //scanner.nextLine();
     }
     out.print("Do you have a driving license?: (yes/no)");
     while (scanner.hasNextLine()) {
-      this.permission = scanner.nextLine();
-    }
+      this.permission = "yes"; //scanner.nextLine();
+    }*/
     if (("yes").equals(this.permission)) {
       this.premiunCalculation();
     } else {
