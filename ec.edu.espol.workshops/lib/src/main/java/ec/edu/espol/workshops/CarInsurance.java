@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class CarInsurance {
   private Scanner scanner;
 
-  private String maritalStatus;
+  private String marital_status;
   private String sex;
   private int age;
   private String permission;
@@ -42,7 +42,7 @@ public class CarInsurance {
     }
     out.print("Enter the marital status of the customer (married/not married):");
     while (scanner.hasNextLine()) {
-      this.maritalStatus = scanner.nextLine();
+      this.marital_status = scanner.nextLine();
     }
     out.print("Do you have a driving license?: (yes/no)");
     while (scanner.hasNextLine()) {
@@ -80,7 +80,7 @@ public class CarInsurance {
 
   /* Getter */
   public String getMaritalStatus() {
-    return this.maritalStatus;
+    return this.marital_status;
   }
 
   public String getSex() {
@@ -101,7 +101,7 @@ public class CarInsurance {
 
   /* Setter */
   public void setMaritalStatus(String maritalStatus) {
-    this.maritalStatus = maritalStatus;
+    this.marital_status = maritalStatus;
   }
 
   public void setSex(String sex) {
