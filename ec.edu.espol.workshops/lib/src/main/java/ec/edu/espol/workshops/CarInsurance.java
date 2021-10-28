@@ -83,23 +83,25 @@ class ProgramConsole {
    * According to age, sex and marital status it calculates the value.
    */
   private int premiunCalculation() {
-    if (this.age >= 80) {
-      out.println("We do not sell a car insurance to a person over 80 years old.");
-    } else {
-      if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
-        this.basePrice = this.basePrice + 1500;
-      } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
-        this.basePrice = this.basePrice - 200;
-      } else if (this.age >= 45 && this.age < 65) {
-        this.basePrice = this.basePrice - 100;
-      }
-      out.print("Its value is:");
-      out.println(this.basePrice);
-      return this.basePrice;
-    }
-    out.print("An error has ocurred");
-    return -1;
-  }
+	  try {
+	    if (this.age >= 80) {
+	      out.println("We do not sell a car insurance to a person over 80 years old.");
+	    } else if (this.age >= 45 && this.age < 65) {
+	      this.basePrice = this.basePrice - 100;
+	    }
+	    if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
+	      this.basePrice = this.basePrice + 1500;
+	    } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
+	      this.basePrice = this.basePrice - 200;
+	    } 
+	    out.print("Its value is:");
+	    out.println(this.basePrice);
+	    return this.basePrice;
+	  } catch(Exception e) {
+		  out.print("An error has ocurred");
+		  return -1;
+	  }
+	}
 
   /* Getter */
   public String getMaritalStatus() {
