@@ -1,6 +1,7 @@
 package ec.edu.espol.workshops;
 
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -20,27 +21,27 @@ public class CarInsurance {
    * It allows inputs where customer set his data to calculate the value.
    */
   public void programConsole() {
-    System.out.println("Enter customer data.");
-    System.out.print("Enter the customer's age:");
+    out.println("Enter customer data.");
+    out.print("Enter the customer's age:");
     while (scanner.hasNextLine()) {
       this.age = Integer.parseInt(scanner.nextLine());
     }
-    System.out.print("Enter the sex of the customer (M/F):");
+    out.print("Enter the sex of the customer (M/F):");
     while (scanner.hasNextLine()) {
       this.sex = scanner.nextLine();
     }
-    System.out.print("Enter the marital status of the customer (married/not married):");
+    out.print("Enter the marital status of the customer (married/not married):");
     while (scanner.hasNextLine()) {
       this.maritalStatus = scanner.nextLine();
     }
-    System.out.print("Do you have a driving license?: (yes/no)");
+    out.print("Do you have a driving license?: (yes/no)");
     while (scanner.hasNextLine()) {
       this.permission = scanner.nextLine();
     }
-    if (this.permission.equals("yes")) {
+    if (("yes").equals(this.permission)) {
       this.premiunCalculation();
     } else {
-      System.out.println("A driver's license is a must to buy car insurance.");
+      out.println("A driver's license is a must to buy car insurance.");
     }
   }
 
@@ -50,20 +51,20 @@ public class CarInsurance {
    */
   private int premiunCalculation() {
     if (this.age >= 80) {
-      System.out.println("We do not sell a car insurance to a person over 80 years old.");
+      out.println("We do not sell a car insurance to a person over 80 years old.");
     } else {
-      if (this.sex.equals("M") && this.maritalStatus.equals("not married") && this.age < 25) {
+      if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && this.age < 25) {
         this.basePrice = this.basePrice + 1500;
-      } else if (this.sex.equals("F") || this.maritalStatus.equals("married")) {
+      } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
         this.basePrice = this.basePrice - 200;
       } else if (this.age >= 45 && this.age < 65) {
         this.basePrice = this.basePrice - 100;
       }
-      System.out.print("Its value is:");
-      System.out.println(this.basePrice);
+      out.print("Its value is:");
+      out.println(this.basePrice);
       return this.basePrice;
     }
-    System.out.print("An error has ocurred");
+    out.print("An error has ocurred");
     return -1;
   }
 
