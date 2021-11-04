@@ -19,11 +19,33 @@ repositories {
 dependencies {
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.1'
+    
+    //testImplementation 'junit:junit:4.12'
+    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:30.0-jre'
+    
 }
 
 application {
     mainClass = 'ec.edu.espol.workshops.CarInsurance' 
+}
+
+configurations {
+    cucumberRuntime {
+      extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+  dependsOn assemble, testClasses
+  doLast {
+    javaexec {
+      main = "io.cucumber.core.cli.Main"
+      classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+      args = ['--plugin', 'pretty','--monochrome','--plugin', 'html:build/reports/cucumberreport.html','--glue', 'Package_Path', 'src/test/resources/Package_Path/']
+    }
+  }
 }
