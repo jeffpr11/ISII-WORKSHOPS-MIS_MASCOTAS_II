@@ -7,13 +7,13 @@ import java.util.Scanner;
 /**
  * CarInsurance Class for program execution.
  */
-public class CarInsurance {
+/*public class CarInsurance {
 	public static void main(String[] args) {
-		new ProgramConsole();
+		//new ProgramConsole();
 	}
-}
+}*/
 
-class ProgramConsole {
+public class CarInsurance {
   private Scanner scanner;
   PrintStream out = System.out;
   
@@ -23,12 +23,12 @@ class ProgramConsole {
   private String permission;
   private int basePrice = 500;
 
-  public ProgramConsole() {
+  public CarInsurance(int age, String married, String sex, String license) {
 //	  Case 1
-//	  this.sex = "M";
-//	  this.age= 20;
-//	  this.permission= "yes";
-//	  this.marital_status = "married";
+	  this.sex = sex;
+	  this.age= age;
+	  this.permission= license;
+	  this.marital_status = married;
 //	  Case 2
 //	  this.sex = "F";
 //	  this.age= 20;
@@ -39,7 +39,6 @@ class ProgramConsole {
 //	  this.age= 16;
 //	  this.permission= "no";
 //	  this.marital_status = "not married";
-//	  this.programConsole();
 //	  Case 4
 //	  this.sex = "M";
 //	  this.age= 50;
@@ -51,7 +50,7 @@ class ProgramConsole {
    * programConsole method.
    * It allows inputs where customer set his data to calculate the value.
    */
-  public void programConsole() {
+  public int programConsole() {
     this.scanner = new Scanner(System.in, "UTF-8");
 
     /*out.println("Enter customer data.");
@@ -72,9 +71,10 @@ class ProgramConsole {
       this.permission = "yes"; //scanner.nextLine();
     }*/
     if (("yes").equals(this.permission)) {
-      this.premiunCalculation();
+      return this.premiunCalculation();
     } else {
       out.println("A driver's license is a must to buy car insurance.");
+      return -1;
     }
   }
 

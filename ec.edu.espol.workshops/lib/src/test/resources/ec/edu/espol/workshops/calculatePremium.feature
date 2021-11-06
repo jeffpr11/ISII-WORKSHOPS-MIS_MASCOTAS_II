@@ -17,18 +17,14 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Is it Friday yet?
-  Scenario: Sunday isn't Friday
-    Given today is Sunday
-    When I ask whether it's Friday yet
-    Then I should be told "Nope"
-  Scenario Outline: Today is or is not Friday
-    Given today is "<day>"
-    When I ask whether it's Friday yet
-    Then I should be told "<answer>"
-  Examples:
-    | day | answer |
-    | Friday | TGIF |
-    | Sunday | Nope |
-    | anything else! | Nope |
-
+Feature: Calculate premiun
+  Scenario Outline: client need premiun.
+    Given <age>-year-old "<married>" "<sex>", license "<license>"
+    When Get calculate the premiun
+    Then I should be <premiun>
+		Examples:
+	 | age | married | sex | license | premiun |
+	 | 20 | married | M | yes | 300 |
+	 | 25 | not married | F | yes | 300 |
+	 | 15 | not married | M | not | -1 |
+	 | 50 | married | M | yes | 200 |
