@@ -26,25 +26,20 @@ class ProgramConsole {
   public ProgramConsole() {
 //	  Case 1
 //	  this.sex = "M";
-//	  this.age= 20;
-//	  this.permission= "yes";
-//	  this.marital_status = "married";
+//	  this.age= 15;
+//	  this.permission= "not";
+//	  this.marital_status = "not married";
 //	  Case 2
-//	  this.sex = "F";
-//	  this.age= 20;
-//	  this.permission= "yes";
-//	  this.marital_status = "not married";
+/*	  this.sex = "F";
+	  this.age= 50;
+	  this.permission= "yes";
+	  this.marital_status = "married";*/
 //	  Case 3
-//	  this.sex = "M";
-//	  this.age= 16;
-//	  this.permission= "no";
-//	  this.marital_status = "not married";
-//	  this.programConsole();
-//	  Case 4
-//	  this.sex = "M";
-//	  this.age= 50;
-//	  this.permission= "yes";
-//	  this.marital_status = "married";
+	  this.sex = "M";
+	  this.age= 84;
+	  this.permission= "yes";
+	  this.marital_status = "not married";
+	  this.programConsole();
   }
   
   /**
@@ -71,11 +66,7 @@ class ProgramConsole {
     while (scanner.hasNextLine()) {
       this.permission = "yes"; //scanner.nextLine();
     }*/
-    if (("yes").equals(this.permission)) {
-      this.premiunCalculation();
-    } else {
-      out.println("A driver's license is a must to buy car insurance.");
-    }
+    this.premiunCalculation();
   }
 
   /**
@@ -83,24 +74,29 @@ class ProgramConsole {
    * According to age, sex and marital status it calculates the value.
    */
   private int premiunCalculation() {
-	  try {
-	    if (this.age >= 80) {
-	      out.println("We do not sell a car insurance to a person over 80 years old.");
-	    } else if (this.age >= 45 && this.age < 65) {
-	      this.basePrice = this.basePrice - 100;
-	    }
-	    if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
-	      this.basePrice = this.basePrice + 1500;
-	    } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
-	      this.basePrice = this.basePrice - 200;
-	    } 
-	    out.print("Its value is:");
-	    out.println(this.basePrice);
-	    return this.basePrice;
-	  } catch(Exception e) {
-		  out.print("An error has ocurred");
-		  return -1;
+	  if (("yes").equals(this.permission)) {
+		  try {
+			  if (this.age >= 80) {
+			      out.println("We do not sell a car insurance to a person over 80 years old.");
+			      return -1;
+			  } else if (this.age >= 45 && this.age < 65) {
+			      this.basePrice = this.basePrice - 100;
+			  }
+			  if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
+			      this.basePrice = this.basePrice + 1500;
+			  } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
+			      this.basePrice = this.basePrice - 200;
+			  } 
+			  out.print("Its value is:");
+			    out.println(this.basePrice);
+			    return this.basePrice;
+			  } catch(Exception e) {
+				  out.print("An error has ocurred");
+			  }
+	  } else {
+	      out.println("A driver's license is a must to buy car insurance.");
 	  }
+	  return -1;
 	}
 
   /* Getter */
