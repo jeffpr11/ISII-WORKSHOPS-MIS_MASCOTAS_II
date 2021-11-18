@@ -16,6 +16,8 @@ public class CarInsurance {
 class ProgramConsole {
   private Scanner scanner;
   PrintStream out = System.out;
+
+  String[] valid = {"M", "F", "married", "not married", "yes", "no"}
   
   private String marital_status;
   private String sex;
@@ -85,28 +87,30 @@ class ProgramConsole {
    * According to age, sex and marital status it calculates the value.
    */
   private int premiunCalculation() {
-	  if (("yes").equals(this.permission)) {
-		  try {
-			  if (this.age >= 80) {
-			      out.println("We do not sell a car insurance to a person over 80 years old.");
-			      return -1;
-			  } else if (this.age >= 45 && this.age < 65) {
-			      this.basePrice = this.basePrice - 100;
-			  }
-			  if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
-			      this.basePrice = this.basePrice + 1500;
-			  } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
-			      this.basePrice = this.basePrice - 200;
-			  } 
-			  out.print("Its value is:");
-			    out.println(this.basePrice);
-			    return this.basePrice;
-			  } catch(Exception e) {
-				  out.print("An error has ocurred");
-			  }
-	  } else {
-	      out.println("A driver's license is a must to buy car insurance.");
-	  }
+    if ( ArrayUtils.contains( valid , this.sex ) && ArrayUtils.contains( valid , this.marital_status ) && ArrayUtils.contains( valid , this.permission )) {
+      if (("yes").equals(this.permission)) {
+        try {
+          if (this.age >= 80) {
+              out.println("We do not sell a car insurance to a person over 80 years old.");
+              return -1;
+          } else if (this.age >= 45 && this.age < 65) {
+              this.basePrice = this.basePrice - 100;
+          }
+          if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
+              this.basePrice = this.basePrice + 1500;
+          } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
+              this.basePrice = this.basePrice - 200;
+          } 
+          out.print("Its value is:");
+            out.println(this.basePrice);
+            return this.basePrice;
+        } catch(Exception e) {
+          out.print("An error has ocurred");
+        }
+      } else {
+          out.println("A driver's license is a must to buy car insurance.");
+      }
+    } 
 	  return -1;
 	}
 
