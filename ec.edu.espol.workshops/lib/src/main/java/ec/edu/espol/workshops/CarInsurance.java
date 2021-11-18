@@ -4,6 +4,9 @@ package ec.edu.espol.workshops;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * CarInsurance Class for program execution.
  */
@@ -17,7 +20,8 @@ class ProgramConsole {
   private Scanner scanner;
   PrintStream out = System.out;
 
-  String[] valid = {"M", "F", "married", "not married", "yes", "no"}
+  String[] valid = {"M", "F", "married", "not married", "yes", "no"};
+  List<String> validList = Arrays.asList(valid);
   
   private String marital_status;
   private String sex;
@@ -26,26 +30,26 @@ class ProgramConsole {
   private int basePrice = 500;
 
   public ProgramConsole() {
-/*//	  Case 1
-	  this.age= 15;
-	  this.sex = "M";
-	  this.marital_status = "not married";
-	  this.permission= "not";
+//	  Case 1
+//	  this.age= 15;
+//	  this.sex = "M";
+//	  this.marital_status = "not married";
+//	  this.permission= "no";
 //	  Case 2
-	  this.age= 15;
-	  this.sex = "A";
-	  this.marital_status = "married";
-	  this.permission= "yes";
+//	  this.age= 15;
+//	  this.sex = "A";
+//	  this.marital_status = "married";
+//	  this.permission= "yes";
 //	  Case 3
-	  this.age= 81;
-	  this.sex = "M";
-	  this.marital_status = "Married";
-	  this.permission= "yes";
+//	  this.age= 81;
+//	  this.sex = "M";
+//	  this.marital_status = "married";
+//	  this.permission= "yes";
 //	  Case 4
-	  this.age= 20;
-	  this.sex = "A";
-	  this.marital_status = "Married";
-	  this.permission= "true";*/ 
+//	  this.age= 20;
+//	  this.sex = "A";
+//	  this.marital_status = "married";
+//	  this.permission= "true";
 //	  Case 5
 	  this.age= 79;
 	  this.sex = "F";
@@ -87,7 +91,7 @@ class ProgramConsole {
    * According to age, sex and marital status it calculates the value.
    */
   private int premiunCalculation() {
-    if ( ArrayUtils.contains( valid , this.sex ) && ArrayUtils.contains( valid , this.marital_status ) && ArrayUtils.contains( valid , this.permission )) {
+    if ( validList.contains(this.sex) && validList.contains(this.marital_status) && validList.contains(this.permission)) {
       if (("yes").equals(this.permission)) {
         try {
           if (this.age >= 80) {
