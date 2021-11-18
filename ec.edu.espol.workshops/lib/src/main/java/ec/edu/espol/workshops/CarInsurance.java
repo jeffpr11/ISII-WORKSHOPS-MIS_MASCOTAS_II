@@ -24,21 +24,32 @@ class ProgramConsole {
   private int basePrice = 500;
 
   public ProgramConsole() {
-//	  Case 1
-//	  this.sex = "M";
-//	  this.age= 15;
-//	  this.permission= "not";
-//	  this.marital_status = "not married";
-//	  Case 2
-/*	  this.sex = "F";
-	  this.age= 50;
-	  this.permission= "yes";
-	  this.marital_status = "married";*/
-//	  Case 3
+/*//	  Case 1
+	  this.age= 15;
 	  this.sex = "M";
-	  this.age= 84;
-	  this.permission= "yes";
 	  this.marital_status = "not married";
+	  this.permission= "not";
+//	  Case 2
+	  this.age= 15;
+	  this.sex = "A";
+	  this.marital_status = "married";
+	  this.permission= "yes";
+//	  Case 3
+	  this.age= 81;
+	  this.sex = "M";
+	  this.marital_status = "Married";
+	  this.permission= "yes";
+//	  Case 4
+	  this.age= 20;
+	  this.sex = "A";
+	  this.marital_status = "Married";
+	  this.permission= "true";*/ 
+//	  Case 5
+	  this.age= 79;
+	  this.sex = "F";
+	  this.marital_status = "not married";
+	  this.permission= "yes";
+	  
 	  this.programConsole();
   }
   
