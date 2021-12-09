@@ -21,7 +21,7 @@ class ProgramConsole {
   private String sex;
   private int age;
   private String permission;
-  private int basePrice = 500;
+  private int basePrice = 600;
 
   public ProgramConsole() {
 //	  Case 1
