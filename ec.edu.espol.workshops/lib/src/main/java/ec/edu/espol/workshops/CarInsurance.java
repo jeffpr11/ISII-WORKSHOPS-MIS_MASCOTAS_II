@@ -2,79 +2,45 @@ package ec.edu.espol.workshops;
 
 
 import java.io.PrintStream;
-import java.util.Scanner;
 
 /**
  * CarInsurance Class for program execution.
  */
 public class CarInsurance {
 	public static void main(String[] args) {
-		new ProgramConsole();
+		new ProgramConsole("M", 84, "yes", "not married");
 	}
 }
 
 class ProgramConsole {
-  private Scanner scanner;
+ // private Scanner scanner;
   PrintStream out = System.out;
   
   private String marital_status;
   private String sex;
   private int age;
   private String permission;
-  private int basePrice = 600;
+  private int basePrice = 500;
 
-  public ProgramConsole() {
-//	  Case 1
-//	  this.sex = "M";
-//	  this.age= 20;
-//	  this.permission= "yes";
-//	  this.marital_status = "married";
-//	  Case 2
-//	  this.sex = "F";
-//	  this.age= 20;
-//	  this.permission= "yes";
-//	  this.marital_status = "not married";
-//	  Case 3
-//	  this.sex = "M";
-//	  this.age= 16;
-//	  this.permission= "no";
-//	  this.marital_status = "not married";
-//	  this.programConsole();
-//	  Case 4
-//	  this.sex = "M";
-//	  this.age= 50;
-//	  this.permission= "yes";
-//	  this.marital_status = "married";
+  public ProgramConsole(String sex, int age, String permission, String marital_status) {
+	  this.sex = sex;
+	  this.age= age;
+	  this.permission= permission;
+	  this.marital_status = marital_status;
+	  
+	  this.programConsole();
   }
   
   /**
    * programConsole method.
    * It allows inputs where customer set his data to calculate the value.
    */
-  public void programConsole() {
-    this.scanner = new Scanner(System.in, "UTF-8");
-
-    /*out.println("Enter customer data.");
-    out.print("Enter the customer's age:");
-    while (scanner.hasNextLine()) {
-      this.age = 50;//Integer.parseInt(scanner.nextLine());
-    }
-    out.print("Enter the sex of the customer (M/F):");
-    while (scanner.hasNextLine()) {
-      this.sex = "M";//scanner.nextLine();
-    }
-    out.print("Enter the marital status of the customer (married/not married):");
-    while (scanner.hasNextLine()) {
-      this.marital_status = "married"; //scanner.nextLine();
-    }
-    out.print("Do you have a driving license?: (yes/no)");
-    while (scanner.hasNextLine()) {
-      this.permission = "yes"; //scanner.nextLine();
-    }*/
+  public int programConsole() {
     if (("yes").equals(this.permission)) {
-      this.premiunCalculation();
+      return this.premiunCalculation();
     } else {
       out.println("A driver's license is a must to buy car insurance.");
+      return -1;
     }
   }
 
@@ -86,6 +52,7 @@ class ProgramConsole {
 	  try {
 	    if (this.age >= 80) {
 	      out.println("We do not sell a car insurance to a person over 80 years old.");
+	      return -1;
 	    } else if (this.age >= 45 && this.age < 65) {
 	      this.basePrice = this.basePrice - 100;
 	    }
