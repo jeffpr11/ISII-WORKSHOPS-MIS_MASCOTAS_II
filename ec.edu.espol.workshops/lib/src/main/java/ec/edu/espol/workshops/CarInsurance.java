@@ -2,18 +2,19 @@ package ec.edu.espol.workshops;
 
 
 import java.io.PrintStream;
+import java.util.Scanner;
 
 /**
  * CarInsurance Class for program execution.
  */
-public class CarInsurance {
+/*public class CarInsurance {
 	public static void main(String[] args) {
-		new ProgramConsole("M", 84, "yes", "not married");
+		//new ProgramConsole();
 	}
-}
+}*/
 
-class ProgramConsole {
- // private Scanner scanner;
+public class CarInsurance {
+  private Scanner scanner;
   PrintStream out = System.out;
   
   private String marital_status;
@@ -22,13 +23,11 @@ class ProgramConsole {
   private String permission;
   private int basePrice = 500;
 
-  public ProgramConsole(String sex, int age, String permission, String marital_status) {
+  public CarInsurance(int age, String married, String sex, String license) {
 	  this.sex = sex;
 	  this.age= age;
-	  this.permission= permission;
-	  this.marital_status = marital_status;
-	  
-	  this.programConsole();
+	  this.permission= license;
+	  this.marital_status = married;
   }
   
   /**
