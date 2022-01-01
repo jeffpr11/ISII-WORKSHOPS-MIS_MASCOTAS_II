@@ -24,10 +24,10 @@ public class CarInsurance {
   private int basePrice = 500;
 
   public CarInsurance(int age, String married, String sex, String license) {
-	  this.sex = sex;
-	  this.age= age;
-	  this.permission= license;
-	  this.marital_status = married;
+	  this.setSex(sex);
+	  this.setAge(age);
+	  this.setPermission(license);
+	  this.setMaritalStatus(married);
   }
   
   /**
@@ -35,7 +35,7 @@ public class CarInsurance {
    * It allows inputs where customer set his data to calculate the value.
    */
   public int programConsole() {
-    if (("yes").equals(this.permission)) {
+    if (("yes").equals(this.getPermission())) {
       return this.premiunCalculation();
     } else {
       out.println("A driver's license is a must to buy car insurance.");
@@ -48,25 +48,20 @@ public class CarInsurance {
    * According to age, sex and marital status it calculates the value.
    */
   private int premiunCalculation() {
-	  try {
-	    if (this.age >= 80) {
-	      out.println("We do not sell a car insurance to a person over 80 years old.");
-	      return -1;
-	    } else if (this.age >= 45 && this.age < 65) {
-	      this.basePrice = this.basePrice - 100;
-	    }
-	    if(("M").equals(this.sex) && ("not married").equals(this.marital_status) && (this.age < 25)) {
-	      this.basePrice = this.basePrice + 1500;
-	    } else if (("F").equals(this.sex) || ("married").equals(this.marital_status)) {
-	      this.basePrice = this.basePrice - 200;
-	    } 
-	    out.print("Its value is:");
-	    out.println(this.basePrice);
-	    return this.basePrice;
-	  } catch(Exception e) {
-		  out.print("An error has ocurred");
-		  return -1;
-	  }
+    if (this.getAge() >= 80) {
+      out.println("We do not sell a car insurance to a person over 80 years old.");
+      return -1;
+    } else if (this.getAge() >= 45 && this.getAge() < 65) {
+      this.setBasePrice(-100);
+    }
+    if(("M").equals(this.getSex()) && ("not married").equals(this.getMaritalStatus()) && (this.getAge() < 25)) {
+    	this.setBasePrice(1500);
+    } else if (("F").equals(this.getSex()) || ("married").equals(this.getMaritalStatus())) {
+      this.setBasePrice(-200);
+    } 
+    out.print("Its value is:");
+    out.println(this.getBasePrice());
+    return this.getBasePrice();
 	}
 
   /* Getter */
