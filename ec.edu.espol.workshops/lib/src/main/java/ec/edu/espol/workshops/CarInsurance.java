@@ -21,6 +21,13 @@ public class CarInsurance {
         this.setPermission(license);
         this.setMaritalStatus(married);
     }
+    
+    public static void main(String[] args) {
+        CarInsurance carI_1 = new CarInsurance(50, "married", "F", "yes");
+        CarInsurance carI_2 = new CarInsurance(65, "not married", "F", "yes");
+        carI_1.programConsole();
+        carI_2.programConsole();
+    }
 
     /**
      * programConsole method. It allows inputs where customer set his data to
